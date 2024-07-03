@@ -33,6 +33,11 @@ app.use((err, req, res, next) => {
 
 const server = http.createServer(app);
 
+server.setTimeout(6000, (socket) => {
+  console.log("Request has timed out");
+  socket.end("Request has timed out");
+});
+
 const PORT = process.env.PORT || 3000;
 
 server.listen(PORT, () => {
