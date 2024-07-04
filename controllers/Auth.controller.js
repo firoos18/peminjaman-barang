@@ -67,7 +67,7 @@ async function adminLogin(req, res, next) {
       message: "success",
       data: {
         email: admin.email,
-        nama: admin.nama,
+        uid: admin.id,
         token: accessToken,
       },
     };
@@ -98,7 +98,7 @@ async function userLogin(req, res, next) {
       message: "success",
       data: {
         email: peminjam.email,
-        nama: peminjam.nama,
+        uid: peminjam.id,
         token: accessToken,
       },
     };
