@@ -14,12 +14,13 @@ app.use(express.urlencoded({ extended: true }));
 
 const corsOptions = {
   origin: "*",
-  method: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  preflightContinue: false,
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  allowedHeaders: ["Content-Type"],
   optionsSuccessStatus: 204,
 };
 
 app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 app.get("/", async (req, res, next) => {
   res.send("Hello, from backend");
