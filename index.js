@@ -7,6 +7,8 @@ require("./helpers/init_mongodb");
 const AuthRoute = require("./routes/Auth.route");
 const BarangRoute = require("./routes/Barang.route");
 const PeminjamanRoute = require("./routes/Peminjaman.route");
+const AdminRoute = require("./routes/Admin.route");
+const UserRoute = require("./routes/User.route");
 
 const app = express();
 app.use(express.json());
@@ -30,6 +32,8 @@ app.get("/", async (req, res, next) => {
 app.use("/auth", AuthRoute);
 app.use("/barang", BarangRoute);
 app.use("/peminjaman", PeminjamanRoute);
+app.use("/admin", AdminRoute);
+app.use("/user", UserRoute);
 
 app.use(async (req, res, next) => {
   next(createError.NotFound());
