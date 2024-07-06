@@ -55,6 +55,8 @@ async function getAllBarang(req, res, next) {
   }
 }
 
+async function getBarangByUid(req, res, next) {}
+
 async function getBarangByKodeBarang(req, res, next) {
   try {
     const { id } = req.params;

@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const BarangSchema = new Schema({
-  kode_barang: {
+  kodeBarang: {
     type: String,
     required: true,
   },
