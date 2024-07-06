@@ -7,6 +7,8 @@ router.get("/", verifyAccessToken, BarangController.getAllBarang);
 
 router.get("/:id", verifyAccessToken, BarangController.getBarangByKodeBarang);
 
+router.get("/admin/:id", verifyAccessToken, BarangController.getBarangByUid);
+
 router.post("/add/", verifyAccessToken, BarangController.addBarang);
 
 router.patch("/edit/:id", verifyAccessToken, BarangController.updateBarang);

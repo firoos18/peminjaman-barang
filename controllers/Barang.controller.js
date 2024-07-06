@@ -2,6 +2,7 @@ const createError = require("http-errors");
 const Barang = require("../models/Barang.model");
 const AdminBarang = require("../models/AdminBarang.model");
 const { tambahBarangSchema } = require("../helpers/validation_schema");
+const Admin = require("../models/Admin.model");
 
 async function addBarang(req, res, next) {
   try {
@@ -55,7 +56,28 @@ async function getAllBarang(req, res, next) {
   }
 }
 
-async function getBarangByUid(req, res, next) {}
+async function getBarangByUid(req, res, next) {
+  try {
+    const { id } = req.params;
+
+    const admin = await Admin.findById(id);
+    if (!admin) throw createError.NotFound("User not found");
+
+    const barangAdmin = await AdminBarang.find({ id_admin: id })
+      .populate("id_barang")
+      .populate("id_admin");
+
+    const response = {
+      status: 200,
+      message: "success",
+      data: barangAdmin,
+    };
+
+    res.send(response);
+  } catch (error) {
+    next(error);
+  }
+}
 
 async function getBarangByKodeBarang(req, res, next) {
   try {
@@ -131,4 +153,5 @@ module.exports = {
   getBarangByKodeBarang,
   updateBarang,
   deleteBarang,
+  getBarangByUid,
 };

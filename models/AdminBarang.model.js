@@ -22,8 +22,8 @@ AdminBarangSchema.set("toJSON", {
 
     return {
       id: ret.id,
-      id_admin: ret.id_admin,
-      id_barang: ret.id,
+      admin: ret.id_admin,
+      barang: ret.id_barang,
     };
   },
 });
