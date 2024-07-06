@@ -19,7 +19,7 @@ const corsOpts = {
 
   methods: ["GET", "POST", "PATCH", "DELETE"],
 
-  allowedHeaders: ["Content-Type"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 };
 
 app.use(cors(corsOpts));
