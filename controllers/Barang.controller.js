@@ -10,10 +10,10 @@ async function addBarang(req, res, next) {
 
     const result = await tambahBarangSchema.validateAsync(req.body);
 
-    const doesExist = await Barang.findOne({ kode_barang: result.kode_barang });
+    const doesExist = await Barang.findOne({ kodeBarang: result.kodeBarang });
     if (doesExist)
       throw createError.Conflict(
-        `Barang with kode barang ${result.kode_barang} is already been registered.`
+        `Barang with kode barang ${result.kodeBarang} is already been registered.`
       );
 
     const barang = await Barang(result);
