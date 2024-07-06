@@ -5,7 +5,7 @@ async function getPeminjamInfo(req, res, next) {
   try {
     const { id } = req.params;
 
-    const peminjam = Peminjam.findById(id);
+    const peminjam = await Peminjam.findById(id);
     if (!peminjam) throw createError.NotFound("User not found");
 
     const response = {

@@ -5,7 +5,7 @@ async function getAdminInfo(req, res, next) {
   try {
     const { id } = req.params;
 
-    const admin = Admin.findById(id);
+    const admin = await Admin.findById(id);
     if (!admin) throw createError.NotFound("User not found");
 
     response = {
