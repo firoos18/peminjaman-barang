@@ -32,7 +32,7 @@ BarangSchema.set("toJSON", {
 
     return {
       id: ret.id,
-      kode_barang: ret.kode_barang,
+      kodeBarang: ret.kode_barang,
       nama: ret.nama,
       merek: ret.merek,
       jenis: ret.jenis,
