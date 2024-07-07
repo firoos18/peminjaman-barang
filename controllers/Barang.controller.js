@@ -79,11 +79,11 @@ async function getBarangByUid(req, res, next) {
   }
 }
 
-async function getBarangByKodeBarang(req, res, next) {
+async function getBarangById(req, res, next) {
   try {
     const { id } = req.params;
 
-    const barang = await Barang.findOne({ kode_barang: id });
+    const barang = await Barang.findById(id);
 
     const response = {
       status: 200,
@@ -150,7 +150,7 @@ async function deleteBarang(req, res, next) {
 module.exports = {
   addBarang,
   getAllBarang,
-  getBarangByKodeBarang,
+  getBarangById,
   updateBarang,
   deleteBarang,
   getBarangByUid,

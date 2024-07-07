@@ -5,7 +5,7 @@ const { verifyAccessToken } = require("../helpers/jwt_helper");
 
 router.get("/", verifyAccessToken, BarangController.getAllBarang);
 
-router.get("/:id", verifyAccessToken, BarangController.getBarangByKodeBarang);
+router.get("/:id", verifyAccessToken, BarangController.getBarangById);
 
 router.get("/admin/:id", verifyAccessToken, BarangController.getBarangByUid);
 
