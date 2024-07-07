@@ -35,8 +35,8 @@ TransaksiSchema.set("toJSON", {
     return {
       id: ret.id,
       tanggalPinjam: ret.tanggalPinjam,
-      idPeminjaman: ret.idPeminjaman,
-      idBarang: ret.idBarang,
+      peminjaman: ret.idPeminjaman,
+      barang: ret.idBarang,
       unit: ret.unit,
       status: ret.status,
     };

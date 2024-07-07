@@ -5,6 +5,24 @@ const Peminjam = require("../models/Peminjam.model");
 const Transaksi = require("../models/Transaksi.model");
 const { pinjamBarangSchema } = require("../helpers/validation_schema");
 
+async function getAllPeminjaman(req, res, next) {
+  try {
+    const peminjaman = await Peminjaman.find()
+      .populate("idPeminjam")
+      .populate("idBarang");
+
+    const response = {
+      status: 200,
+      message: "success",
+      data: peminjaman,
+    };
+
+    res.send(response);
+  } catch (error) {
+    next(error);
+  }
+}
+
 async function pinjamBarang(req, res, next) {
   try {
     const result = await pinjamBarangSchema.validateAsync(req.body);
@@ -96,6 +114,7 @@ async function getPeminjamanData(req, res, next) {
 }
 
 module.exports = {
+  getAllPeminjaman,
   pinjamBarang,
   getPeminjamanData,
 };

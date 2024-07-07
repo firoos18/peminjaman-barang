@@ -9,6 +9,7 @@ const BarangRoute = require("./routes/Barang.route");
 const PeminjamanRoute = require("./routes/Peminjaman.route");
 const AdminRoute = require("./routes/Admin.route");
 const UserRoute = require("./routes/User.route");
+const TransaksiRoute = require("./routes/Transaksi.route");
 
 const app = express();
 app.use(express.json());
@@ -34,6 +35,7 @@ app.use("/barang", BarangRoute);
 app.use("/peminjaman", PeminjamanRoute);
 app.use("/admin", AdminRoute);
 app.use("/user", UserRoute);
+app.use("/transaksi", TransaksiRoute);
 
 app.use(async (req, res, next) => {
   next(createError.NotFound());

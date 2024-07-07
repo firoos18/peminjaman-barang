@@ -34,8 +34,8 @@ PeminjamanSchema.set("toJSON", {
 
     return {
       id: ret.id,
-      idPeminjam: ret.idPeminjam,
-      idBarang: ret.idBarang,
+      peminjam: ret.idPeminjam,
+      barang: ret.idBarang,
       jumlah: ret.jumlah,
       tanggalPinjam: ret.tanggalPinjam,
       tanggalKembali: ret.tanggalKembali,
