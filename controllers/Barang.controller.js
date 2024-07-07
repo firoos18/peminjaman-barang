@@ -101,14 +101,14 @@ async function updateBarang(req, res, next) {
   try {
     const { id } = req.params;
 
-    const barang = await Barang.findOne({ kode_barang: id });
+    const barang = await Barang.findById(id);
     if (!barang)
-      throw createError.NotFound(`Barang with kode barang ${id} is not found`);
+      throw createError.NotFound(`Barang with id ${id} is not found`);
 
     const updateData = req.body;
 
-    const updatedBarang = await Barang.findOneAndUpdate(
-      { kode_barang: id },
+    const updatedBarang = await Barang.findByIdAndUpdate(
+      id,
       { $set: updateData },
       { returnOriginal: false }
     );
@@ -129,12 +129,12 @@ async function deleteBarang(req, res, next) {
   try {
     const { id } = req.params;
 
-    const barang = await Barang.findOne({ kode_barang: id });
+    const barang = await Barang.findById(id);
     if (!barang)
-      throw createError.NotFound(`Barang with kode barang ${id} is not found`);
+      throw createError.NotFound(`Barang with id ${id} is not found`);
 
     await AdminBarang.deleteOne({ id_barang: barang.id });
-    await Barang.deleteOne({ kode_barang: id });
+    await Barang.deleteOne({ kodeBarang: barang.kodeBarang });
 
     const response = {
       status: 200,
