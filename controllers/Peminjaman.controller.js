@@ -80,7 +80,6 @@ async function pinjamBarang(req, res, next) {
     const response = {
       status: 200,
       message: "success",
-      data: peminjaman,
     };
 
     res.send(response);

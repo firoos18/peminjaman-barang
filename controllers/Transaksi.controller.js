@@ -7,7 +7,13 @@ async function getAllTransaksiAdmin(req, res, next) {
   try {
     const transaksi = await Transaksi.find()
       .populate("idBarang")
-      .populate("idPeminjaman");
+      .populate({
+        path: "idPeminjaman",
+        populate: {
+          path: "idPeminjam",
+          model: "peminjam",
+        },
+      });
 
     const response = {
       status: 200,
