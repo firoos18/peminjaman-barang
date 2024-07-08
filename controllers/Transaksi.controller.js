@@ -45,7 +45,13 @@ async function getAllTransaksiUser(req, res, next) {
     const transaksi = await Transaksi.find({
       idPeminjaman: { $in: peminjamanId },
     })
-      .populate("idPeminjaman")
+      .populate({
+        path: "idPeminjaman",
+        populate: {
+          path: "idPeminjam",
+          model: "peminjam",
+        },
+      })
       .populate("idBarang");
 
     const response = {
