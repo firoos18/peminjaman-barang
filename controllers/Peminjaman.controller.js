@@ -34,7 +34,7 @@ async function pinjamBarang(req, res, next) {
       );
 
     const barangFromKode = await Barang.findOne({
-      kode_barang: result.kodeBarang,
+      kodeBarang: result.kodeBarang,
     });
     if (!barangFromKode)
       throw createError.NotFound(
