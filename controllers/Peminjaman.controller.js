@@ -62,7 +62,7 @@ async function pinjamBarang(req, res, next) {
     await peminjaman.save();
 
     await Barang.findOneAndUpdate(
-      { kode_barang: result.kodeBarang },
+      { kodeBarang: result.kodeBarang },
       { $set: { unit: barangFromKode.unit - result.jumlah } }
     );
 
